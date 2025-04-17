@@ -93,6 +93,23 @@
   .back-to-top {
     @apply !static m-0 h-12 w-12 rounded-lg text-[22px] bg-body-light text-body-dark shadow-lg hover:bg-primary hover:text-white focus:bg-primary focus:text-white after:hidden;
   }
+
+  /* Page loading */
+  .page-loading {
+    @apply fixed top-0 bottom-0 left-0 right-0 z-[99999] flex items-center justify-center bg-white opacity-100 visible pointer-events-auto;
+  }
+
+  .page-loading-inner {
+    @apply flex flex-col items-center justify-center;
+  }
+
+  .page-spinner {
+    @apply w-12 h-12 border-4 border-primary border-t-transparent rounded-full animate-spin mb-4;
+  }
+
+  .page-loading.hide {
+    @apply opacity-0 invisible pointer-events-none transition-all duration-500;
+  }
 }
 
 @layer utilities {
