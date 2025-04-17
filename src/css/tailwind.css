@@ -15,7 +15,7 @@
   }
 
   body {
-    @apply text-[14px]/normal font-sans bg-primary-light1 lg:text-base;
+    @apply text-[14px]/normal font-sans bg-body-light lg:text-base;
   }
 
   h1,
@@ -24,11 +24,11 @@
   h4,
   h5,
   h6 {
-    @apply font-bold text-body-light12;
+    @apply font-bold text-body-dark;
   }
 
   p {
-    @apply text-pretty text-body-light12 m-0 font-bold;
+    @apply text-pretty text-body-dark m-0 font-bold;
   }
 
   img {
@@ -36,7 +36,7 @@
   }
 
   a {
-    @apply text-balance break-words text-primary-light11 hover:text-primary-light10 no-underline;
+    @apply text-balance break-words text-primary hover:text-primary-dark no-underline;
   }
 
   button {
@@ -55,7 +55,7 @@
   }
 
   .section {
-    @apply relative py-24 text-body-light11;
+    @apply relative py-24 text-body;
   }
 
   .section-striped {
@@ -63,35 +63,35 @@
   }
 
   .ic-navbar {
-    @apply fixed backdrop-blur bg-opacity-75 shadow-md bg-primary-light1 border-alpha-light z-[9999];
+    @apply fixed backdrop-blur bg-opacity-75 shadow-md bg-primary-light border-alpha-light z-[9999];
   }
 
   .ic-navbar .navbar-brand {
-    @apply text-body-light12;
+    @apply text-body-dark;
   }
 
   .ic-navbar .navbar-toggler {
-    @apply text-body-light12;
+    @apply text-body-dark;
   }
 
   .ic-navbar .navbar-nav .nav-item .nav-link {
-    @apply lg:text-body-light12 lg:hover:text-primary lg:hover:opacity-100;
+    @apply lg:text-body-dark lg:hover:text-primary lg:hover:opacity-100;
   }
 
   .ic-navbar.sticky [data-web-trigger="web-theme"] {
-    @apply text-body-light12;
+    @apply text-body-dark;
   }
 
   .btn {
-    @apply bg-primary hover:bg-primary-light10 hover:text-white;
+    @apply bg-primary hover:bg-primary-dark hover:text-white;
   }
 
   .tabs-link {
-    @apply inline-block py-2 px-4 rounded-md text-body-light12 bg-body-light12/10 text-inherit font-medium hover:bg-primary hover:text-white focus:bg-primary focus:text-white;
+    @apply inline-block py-2 px-4 rounded-md text-body-dark bg-body-dark/10 text-inherit font-medium hover:bg-primary hover:text-white focus:bg-primary focus:text-white;
   }
 
   .back-to-top {
-    @apply !static m-0 h-12 w-12 rounded-lg text-[22px] bg-body-light1 text-body-light12 shadow-lg hover:bg-primary hover:text-white focus:bg-primary focus:text-white after:hidden;
+    @apply !static m-0 h-12 w-12 rounded-lg text-[22px] bg-body-light text-body-dark shadow-lg hover:bg-primary hover:text-white focus:bg-primary focus:text-white after:hidden;
   }
 }
 
