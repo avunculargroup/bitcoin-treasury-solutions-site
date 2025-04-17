@@ -247,3 +247,10 @@ if (st) {
     });
   });
 }
+
+// Update copyright year
+const currentYear = new Date().getFullYear();
+document.getElementById('currentYear').textContent = currentYear;
+
+// Update copyright text
+document.querySelector('.copyright').innerHTML = `&#169; ${currentYear} Bitcoin Treasury Solutions. All rights reserved.`;
