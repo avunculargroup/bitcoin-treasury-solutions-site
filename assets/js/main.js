@@ -36,10 +36,13 @@ if (navbarToggler && navbarMenu) {
 
 // Sticky navbar
 window.addEventListener("scroll", function () {
-  if (this.scrollY >= 72) {
-    navbar.classList.add("sticky");
-  } else {
-    navbar.classList.remove("sticky");
+  const navbar = document.querySelector(".ic-navbar");
+  if (navbar) {
+    if (this.scrollY > 0) {
+      navbar.classList.add("sticky", "shadow-md");
+    } else {
+      navbar.classList.remove("sticky", "shadow-md");
+    }
   }
 });
 

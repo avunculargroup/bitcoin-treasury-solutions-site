@@ -63,7 +63,11 @@
   }
 
   .ic-navbar {
-    @apply fixed backdrop-blur bg-opacity-75 shadow-md bg-primary-light border-alpha-light z-[9999];
+    @apply fixed backdrop-blur bg-opacity-90 shadow-md bg-primary z-[9999];
+  }
+
+  .ic-navbar.sticky {
+    @apply shadow-lg;
   }
 
   .ic-navbar .navbar-brand {
