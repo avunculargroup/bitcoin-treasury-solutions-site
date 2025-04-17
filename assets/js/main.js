@@ -42,38 +42,6 @@ window.addEventListener("scroll", function () {
   }
 });
 
-// Web theme
-const webTheme = document.querySelector("[data-web-trigger=web-theme]"),
-  html = document.querySelector("html");
-
-window.addEventListener("load", function () {
-  var theme = localStorage.getItem("Inazuma_WebTheme");
-
-  if (theme == "light") {
-    webTheme.innerHTML = '<i class="lni lni-sun"></i>';
-  } else if (theme == "dark") {
-    webTheme.innerHTML = '<i class="lni lni-night"></i>';
-  } else {
-    theme = "light";
-    localStorage.setItem("Inazuma_WebTheme", theme);
-    webTheme.innerHTML = '<i class="lni lni-night"></i>';
-  }
-
-  html.dataset.webTheme = theme;
-});
-
-webTheme.addEventListener("click", function () {
-  var theme = localStorage.getItem("Inazuma_WebTheme");
-
-  webTheme.innerHTML =
-    theme == "dark"
-      ? '<i class="lni lni-sun"></i>'
-      : '<i class="lni lni-night"></i>';
-  theme = theme == "dark" ? "light" : "dark";
-  localStorage.setItem("Inazuma_WebTheme", theme);
-  html.dataset.webTheme = theme;
-});
-
 // Scrollspy
 function scrollspy(event) {
   var links = document.querySelectorAll(".ic-page-scroll"),
@@ -250,7 +218,13 @@ if (st) {
 
 // Update copyright year
 const currentYear = new Date().getFullYear();
-document.getElementById('currentYear').textContent = currentYear;
+const yearElement = document.getElementById('currentYear');
+if (yearElement) {
+  yearElement.textContent = currentYear;
+}
 
 // Update copyright text
-document.querySelector('.copyright').innerHTML = `&#169; ${currentYear} Bitcoin Treasury Solutions. All rights reserved.`;
+const copyrightElement = document.querySelector('.copyright');
+if (copyrightElement) {
+  copyrightElement.innerHTML = `&#169; ${currentYear} Bitcoin Treasury Solutions. All rights reserved.`;
+}
