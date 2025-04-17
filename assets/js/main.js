@@ -229,21 +229,21 @@ portfolioFilters.forEach((filter) => {
 var st = document.querySelector("[data-web-trigger=scroll-top]");
 
 if (st) {
-  window.onscroll = function () {
-    if (
-      document.body.scrollTop > 50 ||
-      document.documentElement.scrollTop > 50
-    ) {
+  // Show/hide button based on scroll position
+  window.addEventListener("scroll", function () {
+    if (window.scrollY > 50) {
       st.classList.remove("is-hided");
     } else {
       st.classList.add("is-hided");
     }
-  };
+  });
 
-  st.addEventListener("click", function () {
+  // Scroll to top when clicked
+  st.addEventListener("click", function (e) {
+    e.preventDefault();
     window.scrollTo({
       top: 0,
-      behavior: "smooth",
+      behavior: "smooth"
     });
   });
 }
