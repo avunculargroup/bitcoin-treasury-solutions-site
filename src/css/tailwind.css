@@ -110,6 +110,14 @@
   .page-loading.hide {
     @apply opacity-0 invisible pointer-events-none transition-all duration-500;
   }
+
+  [data-web-trigger="scroll-top"] {
+    @apply transition-all duration-300;
+  }
+  
+  [data-web-trigger="scroll-top"].is-hided {
+    @apply opacity-0 invisible;
+  }
 }
 
 @layer utilities {
