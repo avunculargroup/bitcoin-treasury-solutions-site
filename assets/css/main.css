@@ -741,7 +741,30 @@ ul,
   color: rgb(13 15 16 / var(--tw-text-opacity, 1));
 }
 
+.ic-navbar .navbar-nav{
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+}
+
 @media (min-width: 1024px){
+  .ic-navbar .navbar-nav{
+    width: auto;
+  }
+}
+
+.ic-navbar .navbar-nav .nav-item{
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+}
+
+@media (min-width: 1024px){
+  .ic-navbar .navbar-nav .nav-item{
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
   .ic-navbar .navbar-nav .nav-item .nav-link{
     --tw-text-opacity: 1;
     color: rgb(13 15 16 / var(--tw-text-opacity, 1));

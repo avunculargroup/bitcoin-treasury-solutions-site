@@ -63,11 +63,11 @@
   }
 
   .ic-navbar {
-    @apply fixed backdrop-blur bg-opacity-90 shadow-md bg-primary z-[9999];
+    @apply fixed backdrop-blur bg-primary z-[9999];
   }
 
   .ic-navbar.sticky {
-    @apply shadow-lg;
+    @apply bg-opacity-80 shadow-lg;
   }
 
   .ic-navbar .navbar-brand {
@@ -76,6 +76,14 @@
 
   .ic-navbar .navbar-toggler {
     @apply text-body-dark;
+  }
+
+  .ic-navbar .navbar-nav {
+    @apply flex items-center justify-between w-full lg:w-auto;
+  }
+
+  .ic-navbar .navbar-nav .nav-item {
+    @apply px-2 lg:px-4;
   }
 
   .ic-navbar .navbar-nav .nav-item .nav-link {
