@@ -32,8 +32,15 @@ jobs:
       - name: Build Tailwind CSS
         run: npm run build:css
 
+      - name: Create CNAME file
+        run: echo "bitcointreasurysolutions.com.au" > CNAME
+
       - name: Setup Pages
         uses: actions/configure-pages@v4
+        with:
+          enablement: true
+          static_site_generator: jekyll
+          domain: bitcointreasurysolutions.com.au
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
