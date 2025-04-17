@@ -112,11 +112,11 @@
   }
 
   [data-web-trigger="scroll-top"] {
-    @apply transition-all duration-300;
+    @apply transition-all duration-300 opacity-100 visible;
   }
   
   [data-web-trigger="scroll-top"].is-hided {
-    @apply opacity-0 invisible;
+    @apply opacity-0 invisible pointer-events-none;
   }
 }
 

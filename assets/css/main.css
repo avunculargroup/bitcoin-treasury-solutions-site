@@ -787,18 +787,11 @@ ul,
 /* Page loading */
 
 [data-web-trigger="scroll-top"]{
+  visibility: visible;
+  opacity: 1;
   transition-property: all;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 300ms;
-}
-
-[data-web-trigger="scroll-top"].is-hided{
-  visibility: hidden;
-  opacity: 0;
-}
-
-.visible{
-  visibility: visible;
 }
 
 .invisible{
@@ -1620,10 +1613,6 @@ ul,
 
 .opacity-0{
   opacity: 0;
-}
-
-.opacity-100{
-  opacity: 1;
 }
 
 .opacity-30{
