@@ -39,9 +39,9 @@ window.addEventListener("scroll", function () {
   const navbar = document.querySelector(".ic-navbar");
   if (navbar) {
     if (this.scrollY > 0) {
-      navbar.classList.add("sticky", "shadow-md");
+      navbar.classList.add("sticky");
     } else {
-      navbar.classList.remove("sticky", "shadow-md");
+      navbar.classList.remove("sticky");
     }
   }
 });
