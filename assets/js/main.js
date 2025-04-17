@@ -15,23 +15,24 @@ if (pageLoading) {
 
 // Navbar
 const navbar = document.querySelector(".ic-navbar"),
-  navbarToggler = navbar.querySelector("[data-web-toggle=navbar-collapse]");
+  navbarToggler = navbar.querySelector("[data-web-toggle=navbar-collapse]"),
+  navbarMenu = document.getElementById("navbarMenu");
 
-navbarToggler.addEventListener("click", function () {
-  const dataTarget = this.dataset.webTarget,
-    targetElement = document.getElementById(dataTarget),
-    isExpanded = this.ariaExpanded === "true";
-
-  if (!targetElement) {
-    return;
-  }
-
-  navbar.classList.toggle("menu-show");
-  this.ariaExpanded = !isExpanded;
-  navbarToggler.innerHTML = navbar.classList.contains("menu-show")
-    ? '<i class="lni lni-close"></i>'
-    : '<i class="lni lni-menu"></i>';
-});
+if (navbarToggler && navbarMenu) {
+  navbarToggler.addEventListener("click", function () {
+    const isExpanded = this.ariaExpanded === "true";
+    
+    // Toggle menu visibility
+    navbarMenu.classList.toggle("opacity-0");
+    navbarMenu.classList.toggle("invisible");
+    
+    // Update button state
+    this.ariaExpanded = !isExpanded;
+    this.innerHTML = isExpanded 
+      ? '<i class="lni lni-menu"></i>'
+      : '<i class="lni lni-close"></i>';
+  });
+}
 
 // Sticky navbar
 window.addEventListener("scroll", function () {
