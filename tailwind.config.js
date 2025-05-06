@@ -1,6 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
+  content: ["./**/*.{html,js}"],
   theme: {
     container: {
       center: true,
@@ -9,19 +9,29 @@ module.exports = {
     extend: {
       fontFamily: {
         sans: ["Inter", "sans-serif"],
+        serif: ["Playfair Display", "serif"],
       },
       colors: {
-        primary: {
-          DEFAULT: "#3d63dd",
-          light: "#f5f8ff",
-          dark: "#4a75ff"
-        },
-        body: {
-          DEFAULT: "#212529",
-          light: "#f8f9fa",
-          dark: "#0d0f10",
-          striped: "#f8f9fa"
-        },
+        primary: "#3d63dd",
+        "primary-dark": "#2d4db3",
+        "primary-light-10": "rgb(61 99 221 / 0.1)",
+        "primary-dark-10": "rgb(45 77 179 / 0.1)",
+        "primary-color": "#ffffff",
+        "body-light": "#f8f9fa",
+        "body-light-1": "#ffffff",
+        "body-dark": "#0d0f10",
+        "body-dark-1": "#1e293b",
+        "body-dark-2": "#334155",
+        "body-dark-3": "#475569",
+        "body-dark-4": "#64748b",
+        "body-dark-5": "#94a3b8",
+        "body-dark-6": "#cbd5e1",
+        "body-dark-7": "#e2e8f0",
+        "body-dark-8": "#f1f5f9",
+        "body-dark-9": "#f8fafc",
+        "body-dark-10": "#f1f5f9",
+        "body-dark-11": "#64748b",
+        "body-striped": "#f8f9fa",
         alpha: {
           light: "#d6dbfc2f",
         },
