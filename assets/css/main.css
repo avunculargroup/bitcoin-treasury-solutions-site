@@ -785,6 +785,69 @@ ul,
   padding-bottom: 6rem;
 }
 
+.section-title{
+  margin-bottom: 3rem;
+}
+
+.section-title h2{
+  margin-bottom: 1rem;
+  font-size: 2.25rem;
+  line-height: 2.5rem;
+  font-weight: 700;
+}
+
+.section-title p{
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+  --tw-text-opacity: 1;
+  color: rgb(100 116 139 / var(--tw-text-opacity, 1));
+}
+
+.feature-list > :not([hidden]) ~ :not([hidden]){
+  --tw-space-y-reverse: 0;
+  margin-top: calc(1.5rem * calc(1 - var(--tw-space-y-reverse)));
+  margin-bottom: calc(1.5rem * var(--tw-space-y-reverse));
+}
+
+.feature-item{
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 300ms;
+}
+
+.feature-item:hover{
+  --tw-translate-x: 0.5rem;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+
+.feature-icon{
+  font-size: 1.5rem;
+  line-height: 2rem;
+  --tw-text-opacity: 1;
+  color: rgb(61 99 221 / var(--tw-text-opacity, 1));
+}
+
+.feature-content h4{
+  margin-bottom: 0.5rem;
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+  font-weight: 600;
+}
+
+.feature-content p{
+  --tw-text-opacity: 1;
+  color: rgb(100 116 139 / var(--tw-text-opacity, 1));
+}
+
+.about-image{
+  position: relative;
+}
+
+.about-image img{
+  height: auto;
+  width: 100%;
+}
+
 .ic-navbar{
   position: fixed;
   z-index: 9999;
@@ -1225,6 +1288,10 @@ ul,
 
 .mb-\[3\.750rem\]{
   margin-bottom: 3.750rem;
+}
+
+.me-3{
+  margin-inline-end: 0.75rem;
 }
 
 .ml-2{
