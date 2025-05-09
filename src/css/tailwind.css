@@ -55,7 +55,7 @@
   }
 
   .section {
-    @apply relative py-24 text-body;
+    @apply relative py-24 text-body-dark;
   }
 
   .section-striped {
