@@ -81,20 +81,22 @@ const pageLink = document.querySelectorAll(".ic-page-scroll");
 
 pageLink.forEach((link) => {
   link.addEventListener("click", function (e) {
-    e.preventDefault();
-    const targetElement = document.querySelector(link.getAttribute("href"));
-
-    if (targetElement) {
+    const href = link.getAttribute("href");
+    const targetElement = document.querySelector(href);
+    
+    // Only prevent default and handle scroll for same-page links
+    if (targetElement && !href.includes("index.html")) {
+      e.preventDefault();
       targetElement.scrollIntoView({
         behavior: "smooth",
         offsetTop: 1 - 74,
       });
-    }
 
-    navbar.classList.remove("menu-show");
-    navbarToggler.innerHTML = navbar.classList.contains("menu-show")
-      ? '<i class="lni lni-close"></i>'
-      : '<i class="lni lni-menu"></i>';
+      navbar.classList.remove("menu-show");
+      navbarToggler.innerHTML = navbar.classList.contains("menu-show")
+        ? '<i class="lni lni-close"></i>'
+        : '<i class="lni lni-menu"></i>';
+    }
   });
 });
 
