@@ -2,7 +2,9 @@
 module.exports = {
   content: [
     "./src/**/*.{html,js}",
-    "./index.html"
+    "./index.html",
+    "./july-19.html",
+    "./privacy-policy.html"
   ],
   theme: {
     container: {
