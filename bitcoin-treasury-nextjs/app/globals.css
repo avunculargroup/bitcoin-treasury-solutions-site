@@ -1,0 +1,142 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Raleway:wght@400;500;600;700&display=swap');
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@theme inline {
+  /* Colors from original site */
+  --color-black: #040B18;
+  --color-primary: #123878;
+  --color-primary-dark: #1A2332;
+  --color-primary-light-10: rgb(61 99 221 / 0.1);
+  --color-primary-dark-10: rgb(45 77 179 / 0.1);
+  --color-primary-color: #ffffff;
+  --color-secondary: #4E4011;
+  --color-body-light: #FCF9F1;
+  --color-body-light-1: #ffffff;
+  --color-body-striped: #f8f9fa;
+  --color-alpha-light: #D4AF37;
+  --color-beta-light: #adc5f30f;
+  
+  /* Background colors */
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-body-striped-light: #00005506;
+  
+  /* Border colors */
+  --color-alpha-light-border: #00073527;
+  
+  /* Fonts */
+  --font-sans: 'Raleway', sans-serif;
+  --font-serif: 'Newsreader', serif;
+  --font-geist-sans: var(--font-sans);
+  --font-geist-mono: ui-monospace, 'Menlo', 'Monaco', 'Cascadia Code', 'Segoe UI Mono', 'Roboto Mono', 'Oxygen Mono', 'Ubuntu Monospace', 'Source Code Pro', 'Fira Code', 'Droid Sans Mono', 'Courier New', monospace;
+  
+  /* Container */
+  --container-center: true;
+  --container-padding: 1.25rem;
+  
+  /* Shadows */
+  --shadow-card-1: 0px 0px 40px 0px rgba(0, 0, 0, 0.08);
+  --shadow-card-2: 0px 10px 20px 0 rgba(0, 0, 0, 0.08);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  line-height: 1.6;
+}
+
+/* Custom utility classes */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--container-padding);
+}
+
+/* Scroll behavior */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom animations and transitions */
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Button styles */
+.btn-primary {
+  background-color: var(--color-primary);
+  color: var(--color-primary-color);
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.375rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-primary:hover {
+  background-color: var(--color-primary-dark);
+  transform: translateY(-2px);
+}
+
+.btn-secondary {
+  background-color: rgba(255, 255, 255, 0.2);
+  color: var(--color-primary-color);
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.375rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-secondary:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+/* Navigation styles */
+.navbar-sticky {
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+/* Loading states */
+.loading {
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+/* Responsive utilities */
+@media (max-width: 768px) {
+  .container {
+    padding: 0 1rem;
+  }
+}
