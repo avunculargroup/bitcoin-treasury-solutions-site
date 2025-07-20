@@ -96,7 +96,7 @@
         }
 
         .problem-icon { background: #ef4444; }
-        .solution-icon { background: #22c55e; }
+        .solution-icon { background: #f7931a; }
         .stats-icon { background: #3b82f6; }
         .action-icon { background: #f7931a; }
 
@@ -319,6 +319,19 @@
         @media (max-width: 768px) {
             .header h1 {
                 font-size: 2rem;
+            }
+            
+            .section-title {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 8px;
+            }
+            
+            .icon {
+                width: 35px;
+                height: 35px;
+                font-size: 1.4rem;
+                flex-shrink: 0;
             }
             
             .comparison-table {
