@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bitcoin Treasury Solutions - Infographic</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Raleway', sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            color: white;
+            line-height: 1.4;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            background: linear-gradient(45deg, #f7931a, #ffb347);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .header h1 {
+            font-family: 'Lora', serif;
+            font-size: 3rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            font-size: 1.2rem;
+            color: #e0e6ed;
+        }
+
+        .section {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        }
+
+        .problem-section {
+            background: linear-gradient(135deg, rgba(220, 38, 38, 0.1), rgba(239, 68, 68, 0.05));
+            border-left: 5px solid #ef4444;
+        }
+
+        .solution-section {
+            background: linear-gradient(135deg, rgba(34, 197, 94, 0.1), rgba(74, 222, 128, 0.05));
+            border-left: 5px solid #22c55e;
+        }
+
+        .stats-section {
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(99, 102, 241, 0.05));
+            border-left: 5px solid #3b82f6;
+        }
+
+        .section-title {
+            font-family: 'Lora', serif;
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .icon {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+        }
+
+        .problem-icon { background: #ef4444; }
+        .solution-icon { background: #22c55e; }
+        .stats-icon { background: #3b82f6; }
+        .action-icon { background: #f7931a; }
+
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .metric-card {
+            background: rgba(255, 255, 255, 0.08);
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .metric-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #f7931a;
+            margin-bottom: 10px;
+        }
+
+        .metric-label {
+            font-size: 0.9rem;
+            color: #cbd5e1;
+        }
+
+        .comparison-table {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 2px;
+            margin: 20px 0;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .table-header {
+            background: #f7931a;
+            padding: 15px;
+            font-weight: bold;
+            text-align: center;
+            color: black;
+        }
+
+        .table-cell {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 15px;
+            text-align: center;
+        }
+
+        .table-cell.good { background: rgba(34, 197, 94, 0.2); }
+        .table-cell.bad { background: rgba(239, 68, 68, 0.2); }
+        .table-cell.neutral { background: rgba(156, 163, 175, 0.2); }
+
+        .bitcoin-benefits {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .benefit {
+            background: rgba(247, 147, 26, 0.1);
+            padding: 15px;
+            border-radius: 10px;
+            border-left: 4px solid #f7931a;
+        }
+
+        .benefit-title {
+            font-family: 'Lora', serif;
+            font-weight: bold;
+            margin-bottom: 5px;
+            color: #f7931a;
+        }
+
+        .action-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .action-step {
+            background: linear-gradient(135deg, rgba(247, 147, 26, 0.1), rgba(255, 179, 71, 0.05));
+            padding: 20px;
+            border-radius: 15px;
+            border: 1px solid rgba(247, 147, 26, 0.3);
+        }
+
+        .step-number {
+            background: #f7931a;
+            color: black;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .action-step h3 {
+            font-family: 'Lora', serif;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .quote {
+            background: rgba(247, 147, 26, 0.1);
+            border-left: 4px solid #f7931a;
+            padding: 20px;
+            margin: 20px 0;
+            font-style: italic;
+            border-radius: 0 10px 10px 0;
+        }
+
+        .quote-text {
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+        }
+
+        .quote-author {
+            text-align: right;
+            color: #f7931a;
+            font-weight: bold;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            padding: 30px;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 20px;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        .contact-item {
+            text-align: center;
+        }
+
+        .contact-label {
+            color: #f7931a;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .disclaimer {
+            background: rgba(239, 68, 68, 0.1);
+            border: 1px solid rgba(239, 68, 68, 0.3);
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+            font-size: 0.9rem;
+            color: #e0e6ed;
+            text-align: center;
+        }
+
+        .disclaimer strong {
+            color: #ef4444;
+            font-weight: bold;
+        }
+
+        .further-reading {
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(99, 102, 241, 0.05));
+            border-left: 5px solid #3b82f6;
+            padding: 30px;
+            margin: 30px 0;
+            border-radius: 20px;
+        }
+
+        .further-reading h2 {
+            font-family: 'Lora', serif;
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .reading-list {
+            display: grid;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .reading-item {
+            background: rgba(255, 255, 255, 0.08);
+            padding: 15px;
+            border-radius: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .reading-item a {
+            color: #3b82f6;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .reading-item a:hover {
+            color: #60a5fa;
+            text-decoration: underline;
+        }
+
+        .book-item {
+            color: #e0e6ed;
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .comparison-table {
+                grid-template-columns: 1fr;
+                gap: 1px;
+            }
+            
+            .contact-info {
+                flex-direction: column;
+                gap: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <h1>The Case For Bitcoin</h1>
+        </div>
+
+        <!-- Disclaimer -->
+        <div class="disclaimer">
+            <strong>Disclaimer:</strong> This content provides general information only and is not intended as financial advice. You should consider your own circumstances and seek independent financial advice before making any decisions.
+        </div>
+
+        <!-- The Problem -->
+        <div class="section problem-section">
+            <h2 class="section-title">
+                <span class="icon problem-icon">⚠️</span>
+                The Investment Dilemma
+            </h2>
+            
+            <div class="metrics-grid">
+                <div class="metric-card">
+                    <div class="metric-number">2.4%</div>
+                    <div class="metric-label">Official Australian CPI</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-number">7.0%</div>
+                    <div class="metric-label">Actual Property Price Growth</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-number">96%</div>
+                    <div class="metric-label">Companies Underperform Index</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-number">0%</div>
+                    <div class="metric-label">Real Returns After Inflation</div>
+                </div>
+            </div>
+
+            <p><strong>Reality:</strong> Traditional investments fail to preserve purchasing power in a high-risk, low-return environment where real inflation significantly exceeds reported figures.</p>
+        </div>
+
+        <!-- Traditional vs Bitcoin Comparison -->
+        <div class="section">
+            <h2 class="section-title">
+                <span class="icon stats-icon">📊</span>
+                Traditional Assets vs Bitcoin
+            </h2>
+            
+            <div class="comparison-table">
+                <div class="table-header">Asset Class</div>
+                <div class="table-header">Inflation Hedge</div>
+                <div class="table-header">Long-term Growth</div>
+                
+                <div class="table-cell">Cash/Fixed Income</div>
+                <div class="table-cell bad">Poor</div>
+                <div class="table-cell bad">Negative Real Returns</div>
+                
+                <div class="table-cell">Public Equities</div>
+                <div class="table-cell neutral">Mixed</div>
+                <div class="table-cell neutral">Correlates with Money Supply</div>
+                
+                <div class="table-cell">Real Estate</div>
+                <div class="table-cell neutral">Moderate</div>
+                <div class="table-cell neutral">Illiquid, High Costs</div>
+                
+                <div class="table-cell">Bitcoin</div>
+                <div class="table-cell good">Excellent</div>
+                <div class="table-cell good">Superior Historical Returns</div>
+            </div>
+        </div>
+
+        <!-- Bitcoin Solution -->
+        <div class="section solution-section">
+            <h2 class="section-title">
+                <span class="icon solution-icon">₿</span>
+                Bitcoin: Engineered Money for the Digital Age
+            </h2>
+            
+            <div class="bitcoin-benefits">
+                <div class="benefit">
+                    <div class="benefit-title">Fixed Supply</div>
+                    <div>Only 21 million will ever exist</div>
+                </div>
+                <div class="benefit">
+                    <div class="benefit-title">Decentralized</div>
+                    <div>No government or bank control</div>
+                </div>
+                <div class="benefit">
+                    <div class="benefit-title">Global & 24/7</div>
+                    <div>Instant settlement worldwide</div>
+                </div>
+                <div class="benefit">
+                    <div class="benefit-title">Uncorrelated</div>
+                    <div>Low correlation with traditional assets</div>
+                </div>
+                <div class="benefit">
+                    <div class="benefit-title">Liquid</div>
+                    <div>Easy to buy, sell, and custody</div>
+                </div>
+                <div class="benefit">
+                    <div class="benefit-title">Transparent</div>
+                    <div>All transactions publicly verifiable</div>
+                </div>
+            </div>
+
+            <div class="quote">
+                <div class="quote-text">"Bitcoin is exponential gold with a venture component due to its increased scarcity and potentially high-octane demand curve."</div>
+                <div class="quote-author">- Fidelity Investments</div>
+            </div>
+        </div>
+
+        <!-- Adoption Stats -->
+        <div class="section stats-section">
+            <h2 class="section-title">
+                <span class="icon stats-icon">🚀</span>
+                Institutional Adoption Accelerating
+            </h2>
+            
+            <div class="metrics-grid">
+                <div class="metric-card">
+                    <div class="metric-number">100+</div>
+                    <div class="metric-label">Public Companies Hold Bitcoin</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-number">1,000+</div>
+                    <div class="metric-label">Projected Companies by 2026</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-number">#1</div>
+                    <div class="metric-label">Most Successful ETF Launch (Bitcoin)</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-number">50%+</div>
+                    <div class="metric-label">Bitcoin Mining Uses Renewables</div>
+                </div>
+            </div>
+
+            <div class="quote">
+                <div class="quote-text">"The narrative is shifting. If you DON'T put Bitcoin on the balance sheet, you risk being fired for missing something big."</div>
+                <div class="quote-author">- Adam Swick, Marathon Digital Holdings</div>
+            </div>
+        </div>
+
+        <!-- Return Potential -->
+        <div class="section">
+            <h2 class="section-title">
+                <span class="icon stats-icon">💰</span>
+                Return Potential Models
+            </h2>
+            
+            <div class="metrics-grid">
+                <div class="metric-card">
+                    <div class="metric-number">9x</div>
+                    <div class="metric-label">If Bitcoin = Gold Market Cap<br>($850K per Bitcoin)</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-number">20x+</div>
+                    <div class="metric-label">Store of Value Market Capture<br>($2.1M per Bitcoin)</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-number">5-20%</div>
+                    <div class="metric-label">Projected Annual Returns<br>(Conservative Long-term)</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-number">1-5%</div>
+                    <div class="metric-label">Recommended Allocation<br>(Risk Management)</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Implementation -->
+        <div class="section">
+            <h2 class="section-title">
+                <span class="icon action-icon">🎯</span>
+                Implementation Roadmap
+            </h2>
+            
+            <div class="action-steps">
+                <div class="action-step">
+                    <div class="step-number">1</div>
+                    <h3>Governance & Strategy</h3>
+                    <p>Define Bitcoin strategy, secure board approval, establish working groups for trading, custody, and compliance.</p>
+                </div>
+                <div class="action-step">
+                    <div class="step-number">2</div>
+                    <h3>Infrastructure Setup</h3>
+                    <p>Select institutional custodians, implement security protocols, ensure regulatory compliance frameworks.</p>
+                </div>
+                <div class="action-step">
+                    <div class="step-number">3</div>
+                    <h3>Strategic Allocation</h3>
+                    <p>Start with 1-5% treasury allocation, implement rebalancing strategy, maintain 10-20 year perspective.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Final Quote -->
+        <div class="quote">
+            <div class="quote-text">"Digital capital is the next great wave that differentiates your business from others. Sooner or later it's coming. We all get the price we deserve."</div>
+        </div>
+
+        <!-- Further Reading -->
+        <div class="section further-reading">
+            <h2 class="section-title">
+                <span class="icon stats-icon">📚</span>
+                Further Reading
+            </h2>
+            
+            <div class="reading-list">
+                <div class="reading-item">
+                    <a href="https://whybitcoinshow.com/bitcoin-retirement-calculator/" target="_blank" rel="noopener noreferrer">Bitcoin Retirement Calculator</a>
+                </div>
+                <div class="reading-item">
+                    <a href="https://www.whatbitcoindid.com/" target="_blank" rel="noopener noreferrer">What Bitcoin Did</a>
+                </div>
+                <div class="reading-item book-item">
+                    📖 The Bitcoin Standard - Saifedean Ammous
+                </div>
+                <div class="reading-item">
+                    <a href="https://www.lopp.net/" target="_blank" rel="noopener noreferrer">Jameson Lopp's Website</a>
+                </div>
+                <div class="reading-item">
+                    <a href="https://lookingglasseducation.com/" target="_blank" rel="noopener noreferrer">Looking Glass Education</a>
+                </div>
+                <div class="reading-item book-item">
+                    📖 Broken Money - Lyn Alden
+                </div>
+                <div class="reading-item book-item">
+                    📖 The Big Print - Lawrence Lepard
+                </div>
+            </div>
+        </div>
+
+        <!-- Disclaimer -->
+        <div class="disclaimer">
+            <strong>Disclaimer:</strong> This content provides general information only and is not intended as financial advice. You should consider your own circumstances and seek independent financial advice before making any decisions.
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <h3 style="font-family: 'Lora', serif; color: #f7931a; margin-bottom: 20px;">Ready to Transform Your Treasury?</h3>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <div class="contact-label">Director</div>
+                    <div>Carri Cee</div>
+                    <div><a href="mailto:carri@btreasury.com.au" style="color: #e0e6ed; text-decoration: none;">carri@btreasury.com.au</a></div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-label">Website</div>
+                    <div><a href="https://bitcointreasurysolutions.com.au" target="_blank" rel="noopener noreferrer" style="color: #e0e6ed; text-decoration: none;">bitcointreasurysolutions.com.au</a></div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-label">Location</div>
+                    <div>513/585 Little Collins St</div>
+                    <div>Melbourne</div>
+                </div>
+            </div>
+            <p style="margin-top: 30px; color: #cbd5e1; font-style: italic;">
+                "It might make sense just to get some, in case it catches on." - Satoshi Nakamoto, 2009
+            </p>
+        </div>
+    </div>
+</body>
+</html>
