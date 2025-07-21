@@ -3,7 +3,54 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bitcoin Treasury Solutions - Infographic</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="author" content="Bitcoin Treasury Solutions" />
+    <meta name="rating" content="general" />
+    <meta name="language" content="English" />
+    <meta name="application-name" content="Bitcoin Treasury Solutions" />
+    <meta
+      name="description"
+      content="The Case For Bitcoin - Comprehensive analysis of Bitcoin adoption for corporate treasuries. Learn why Bitcoin is the solution for preserving wealth in the digital age."
+    />
+    <meta name="keywords" content="bitcoin, treasury, corporate, investment, wealth preservation, digital assets, australia, melbourne" />
+    <meta
+      name="twitter:title"
+      content="The Case For Bitcoin | Bitcoin Treasury Solutions"
+    />
+    <meta
+      name="twitter:description"
+      content="The Case For Bitcoin - Comprehensive analysis of Bitcoin adoption for corporate treasuries. Learn why Bitcoin is the solution for preserving wealth in the digital age."
+    />
+    <meta name="twitter:image" content="./assets/img/bitcoin-treasury-cover.png" />
+    <meta
+      content="The Case For Bitcoin | Bitcoin Treasury Solutions"
+      property="og:title"
+    />
+    <meta content="Bitcoin Treasury Solutions" property="og:site_name" />
+    <meta
+      content="The Case For Bitcoin - Comprehensive analysis of Bitcoin adoption for corporate treasuries. Learn why Bitcoin is the solution for preserving wealth in the digital age."
+      property="og:description"
+    />
+    <meta content="./assets/img/bitcoin-treasury-cover.png" property="og:image" />
+    <meta content="https://bitcointreasurysolutions.com/why.html" property="og:url" />
+    <meta content="website" property="og:type" />
+
+    <meta name="msapplication-TileColor" content="#f7931a" />
+    <meta name="theme-color" content="#f7931a" />
+
+    <title>The Case For Bitcoin | Bitcoin Treasury Solutions</title>
+
+    <!-- Canonical -->
+    <link rel="canonical" href="https://bitcointreasurysolutions.com/why.html" />
+
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" href="./assets/favicon/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="192x192" href="./assets/favicon/android-chrome-192x192.png" />
+    <link rel="icon" type="image/png" sizes="512x512" href="./assets/favicon/android-chrome-512x512.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="./assets/favicon/favicon-16x16.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon/favicon-32x32.png" />
+    <link rel="shortcut icon" href="./assets/favicon/favicon.ico" />
+    <link rel="manifest" href="./assets/favicon/site.webmanifest" />
     
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -269,6 +316,60 @@
         .disclaimer strong {
             color: #ef4444;
             font-weight: bold;
+        }
+
+        .share-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #f7931a;
+            color: black;
+            border: none;
+            border-radius: 50px;
+            padding: 12px 20px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 4px 12px rgba(247, 147, 26, 0.3);
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+
+        .share-button:hover {
+            background: #e67e22;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(247, 147, 26, 0.4);
+        }
+
+        .share-button:active {
+            transform: translateY(0);
+        }
+
+        .share-icon {
+            font-size: 1.2rem;
+        }
+
+        .share-success {
+            position: fixed;
+            bottom: 80px;
+            right: 20px;
+            background: #22c55e;
+            color: white;
+            padding: 10px 16px;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            opacity: 0;
+            transform: translateY(10px);
+            transition: all 0.3s ease;
+            z-index: 1001;
+        }
+
+        .share-success.show {
+            opacity: 1;
+            transform: translateY(0);
         }
 
         .further-reading {
@@ -608,5 +709,84 @@
             </p>
         </div>
     </div>
+
+    <!-- Share Button -->
+    <button class="share-button" onclick="sharePage()">
+        <span class="share-icon">📤</span>
+        Share with a colleague
+    </button>
+
+    <!-- Share Success Message -->
+    <div class="share-success" id="shareSuccess">
+        Link copied to clipboard!
+    </div>
+
+    <script>
+        async function sharePage() {
+            const url = window.location.href;
+            const title = 'The Case For Bitcoin - Bitcoin Treasury Solutions';
+            const text = 'Check out this comprehensive case for Bitcoin adoption in corporate treasuries.';
+
+            // Check if Web Share API is available (mobile devices)
+            if (navigator.share) {
+                try {
+                    await navigator.share({
+                        title: title,
+                        text: text,
+                        url: url
+                    });
+                } catch (error) {
+                    // User cancelled or share failed, fall back to copy link
+                    copyToClipboard(url);
+                }
+            } else {
+                // Fall back to copy link for desktop browsers
+                copyToClipboard(url);
+            }
+        }
+
+        function copyToClipboard(text) {
+            if (navigator.clipboard) {
+                navigator.clipboard.writeText(text).then(() => {
+                    showSuccessMessage();
+                }).catch(() => {
+                    // Fallback for older browsers
+                    fallbackCopyToClipboard(text);
+                });
+            } else {
+                // Fallback for older browsers
+                fallbackCopyToClipboard(text);
+            }
+        }
+
+        function fallbackCopyToClipboard(text) {
+            const textArea = document.createElement('textarea');
+            textArea.value = text;
+            textArea.style.position = 'fixed';
+            textArea.style.left = '-999999px';
+            textArea.style.top = '-999999px';
+            document.body.appendChild(textArea);
+            textArea.focus();
+            textArea.select();
+            
+            try {
+                document.execCommand('copy');
+                showSuccessMessage();
+            } catch (error) {
+                console.error('Failed to copy: ', error);
+            }
+            
+            document.body.removeChild(textArea);
+        }
+
+        function showSuccessMessage() {
+            const successElement = document.getElementById('shareSuccess');
+            successElement.classList.add('show');
+            
+            setTimeout(() => {
+                successElement.classList.remove('show');
+            }, 3000);
+        }
+    </script>
 </body>
 </html>
