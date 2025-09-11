@@ -122,6 +122,150 @@
     <link rel="stylesheet" href="https://cdn.lineicons.com/4.0/lineicons.css" />
 
     <link rel="stylesheet" href="./assets/css/main.css" />
+    
+    <!-- Event Popup Styles -->
+    <style>
+        .popup-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(8px);
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .popup-overlay.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .popup-content {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            border-radius: 20px;
+            padding: 30px;
+            max-width: 500px;
+            width: 90%;
+            max-height: 80vh;
+            overflow-y: auto;
+            position: relative;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+            transform: scale(0.8);
+            transition: transform 0.3s ease;
+        }
+
+        .popup-overlay.show .popup-content {
+            transform: scale(1);
+        }
+
+        .popup-close {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: rgba(255, 255, 255, 0.1);
+            border: none;
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            transition: all 0.3s ease;
+        }
+
+        .popup-close:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: rotate(90deg);
+        }
+
+        .popup-title {
+            font-family: 'Lora', serif;
+            font-size: 2rem;
+            font-weight: bold;
+            color: #f7931a;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+
+        .event-card {
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .event-card:hover {
+            background: rgba(255, 255, 255, 0.12);
+            transform: translateY(-2px);
+        }
+
+        .event-title {
+            font-family: 'Lora', serif;
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: white;
+            margin-bottom: 10px;
+        }
+
+        .event-details {
+            color: #cbd5e1;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .event-details i {
+            color: #f7931a;
+            width: 16px;
+        }
+
+        .event-button {
+            background: #f7931a;
+            color: black;
+            border: none;
+            border-radius: 8px;
+            padding: 10px 20px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+            margin-top: 15px;
+        }
+
+        .event-button:hover {
+            background: #e67e22;
+            transform: translateY(-1px);
+        }
+
+        @media (max-width: 768px) {
+            .popup-content {
+                padding: 20px;
+                margin: 20px;
+            }
+            
+            .popup-title {
+                font-size: 1.5rem;
+            }
+            
+            .event-title {
+                font-size: 1.1rem;
+            }
+        }
+    </style>
   </head>
   <body>
 
@@ -589,7 +733,7 @@
       </section>
 
       <!-- About section -->
-      <section id="about" class="section-area">
+      <section id="about" class="relative z-10 py-16 md:py-20 lg:py-28">
         <div class="container mt-12">
           <div class="grid grid-cols-1 gap-14 lg:grid-cols-2">
             <div class="w-full">
@@ -768,6 +912,62 @@
           </div>
 
           <div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+
+                        <!-- Education & Training -->
+                        <div class="wow fadeInUp" data-wow-delay=".4s">
+                          <div class="group relative overflow-hidden rounded-lg bg-white p-8 shadow-one transition-all duration-300 hover:shadow-two">
+                            <div class="relative z-10 mb-8 flex h-[70px] w-[70px] items-center justify-center rounded-full bg-alpha-light text-secondary">
+                              <svg class="h-10 w-10" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12 14L21 9L12 4L3 9L12 14Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M9 12L3 9V15L9 18V12Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M15 12L21 9V15L15 18V12Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                              </svg>
+                            </div>
+                            <h3 class="mb-4 text-xl font-bold text-black sm:text-2xl">
+                              Education & Training
+                            </h3>
+                            <p class="mb-6 text-base text-body-color">
+                              Comprehensive training programs for your team to understand and manage Bitcoin treasury operations.
+                            </p>
+                            <ul class="mb-8 space-y-3 text-body-color">
+                              <li class="flex items-center">
+                                <span class="mr-2 text-primary">
+                                  <svg class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                                  </svg>
+                                </span>
+                                Team workshops
+                              </li>
+                              <li class="flex items-center">
+                                <span class="mr-2 text-primary">
+                                  <svg class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                                  </svg>
+                                </span>
+                                Executive briefings
+                              </li>
+                              <li class="flex items-center">
+                                <span class="mr-2 text-primary">
+                                  <svg class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                                  </svg>
+                                </span>
+                                Ongoing support
+                              </li>
+                            </ul>
+                            <!-- <a
+                              href="#contact"
+                              class="inline-flex items-center text-base font-medium text-primary hover:text-primary/80"
+                            >
+                              Learn More
+                              <span class="ml-2">
+                                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                  <path d="M6.25 3.33337L13.75 10L6.25 16.6667" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                              </span>
+                            </a> -->
+                          </div>
+                        </div>
             <!-- Treasury Strategy -->
             <div class="wow fadeInUp" data-wow-delay=".2s">
               <div class="group relative overflow-hidden rounded-lg bg-white p-8 shadow-one transition-all duration-300 hover:shadow-two">
@@ -878,61 +1078,7 @@
               </div>
             </div>
 
-            <!-- Education & Training -->
-            <div class="wow fadeInUp" data-wow-delay=".4s">
-              <div class="group relative overflow-hidden rounded-lg bg-white p-8 shadow-one transition-all duration-300 hover:shadow-two">
-                <div class="relative z-10 mb-8 flex h-[70px] w-[70px] items-center justify-center rounded-full bg-alpha-light text-secondary">
-                  <svg class="h-10 w-10" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M12 14L21 9L12 4L3 9L12 14Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path d="M9 12L3 9V15L9 18V12Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path d="M15 12L21 9V15L15 18V12Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                  </svg>
-                </div>
-                <h3 class="mb-4 text-xl font-bold text-black sm:text-2xl">
-                  Education & Training
-                </h3>
-                <p class="mb-6 text-base text-body-color">
-                  Comprehensive training programs for your team to understand and manage Bitcoin treasury operations.
-                </p>
-                <ul class="mb-8 space-y-3 text-body-color">
-                  <li class="flex items-center">
-                    <span class="mr-2 text-primary">
-                      <svg class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                        <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
-                      </svg>
-                    </span>
-                    Team workshops
-                  </li>
-                  <li class="flex items-center">
-                    <span class="mr-2 text-primary">
-                      <svg class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                        <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
-                      </svg>
-                    </span>
-                    Executive briefings
-                  </li>
-                  <li class="flex items-center">
-                    <span class="mr-2 text-primary">
-                      <svg class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                        <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
-                      </svg>
-                    </span>
-                    Ongoing support
-                  </li>
-                </ul>
-                <!-- <a
-                  href="#contact"
-                  class="inline-flex items-center text-base font-medium text-primary hover:text-primary/80"
-                >
-                  Learn More
-                  <span class="ml-2">
-                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <path d="M6.25 3.33337L13.75 10L6.25 16.6667" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                  </span>
-                </a> -->
-              </div>
-            </div>
+
           </div>
         </div>
       </section>
@@ -3066,6 +3212,88 @@
           },
         },
       });
+    </script>
+
+    <!-- Event Popup -->
+    <div class="popup-overlay" id="eventPopup">
+        <div class="popup-content">
+            <button class="popup-close" onclick="closePopup()">&times;</button>
+            <h2 class="popup-title">Upcoming Events</h2>
+            
+            <div class="event-card">
+                <h3 class="event-title">Bitcoin Basics for Beginners</h3>
+                <div class="event-details">
+                    <i class="lni lni-clock"></i>
+                    <span>1.25 hours</span>
+                </div>
+                <div class="event-details">
+                    <i class="lni lni-calendar"></i>
+                    <span>6:30pm October 2</span>
+                </div>
+                <div class="event-details">
+                    <i class="lni lni-map-marker"></i>
+                    <span>Camberwell</span>
+                </div>
+                <button class="event-button" onclick="goToEvent('bitcoin-basics')">
+                    Learn More
+                </button>
+            </div>
+            
+            <div class="event-card">
+                <h3 class="event-title">Understanding Bitcoin: Stay Ahead of the Curve</h3>
+                <div class="event-details">
+                    <i class="lni lni-clock"></i>
+                    <span>Full day workshop</span>
+                </div>
+                <div class="event-details">
+                    <i class="lni lni-calendar"></i>
+                    <span>October 11, 9:30am - 3:30pm</span>
+                </div>
+                <div class="event-details">
+                    <i class="lni lni-map-marker"></i>
+                    <span>South Melbourne</span>
+                </div>
+                <button class="event-button" onclick="goToEvent('bitcoin-workshop')">
+                    Learn More
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Event Popup JavaScript -->
+    <script>
+        // Show popup after 1 second
+        setTimeout(() => {
+            document.getElementById('eventPopup').classList.add('show');
+        }, 1000);
+
+        // Close popup function
+        function closePopup() {
+            document.getElementById('eventPopup').classList.remove('show');
+        }
+
+        // Close popup when clicking outside
+        document.getElementById('eventPopup').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closePopup();
+            }
+        });
+
+        // Close popup with Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closePopup();
+            }
+        });
+
+        // Event button handlers
+        function goToEvent(eventType) {
+            if (eventType === 'bitcoin-basics') {
+                window.open('https://events.humanitix.com/bitcoin-basics-q9j4tr2r', '_blank');
+            } else if (eventType === 'bitcoin-workshop') {
+                window.open('https://www.eventbrite.com.au/e/understand-bitcoin-stay-ahead-of-the-curve-tickets-1550050455639', '_blank');
+            }
+        }
     </script>
   </body>
 </html>
